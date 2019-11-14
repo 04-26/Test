@@ -1,23 +1,22 @@
 <template>
   <div>
-    <div class="text" v-for="(item,index) in test" :key="index">{{item}}</div>
+    <button @click="cancel">点击关闭</button>
+    <div class="text">{{msg}}</div>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    test: {
-      type: Array,
-      default(){
-          return []
-      }
-    }
-  },
   data() {
     return {
-      msg: 5555
+      msg: 5555,
+      isshow:true
     };
+  },
+  methods:{
+    cancel(){
+      this.$emit("update:ishow",false)
+    }
   }
 };
 </script>
